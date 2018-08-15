@@ -1,6 +1,6 @@
 version: '3' # docker-composeの使用バージョン
 services: # コンテナから作られるサービス達。コンテナの設定を以下に。
-  nginx: # コンテナの名前
+  front: # コンテナの名前
     build: # イメージ(コンテナのテンプレ)を作るためのDockerfileがある場所
       context: ./ # Dockerfileの場所
     privileged: true
@@ -19,3 +19,4 @@ services: # コンテナから作られるサービス達。コンテナの設�
     - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: admin
+    container_name: "mysql" # コンテナ名

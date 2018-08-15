@@ -44,7 +44,7 @@ docker-compose up -d
 ```
 4. 個別のサービスを指定することもできる。
 ```
-docker-compose up -d redmine
+docker-compose up -d webserver
 ```
 ※ 依存関係がある場合は関係するコンテナすべてが起動する
 
@@ -52,7 +52,7 @@ docker-compose up -d redmine
 ```
 docker-compose logs
 ```
-6 関係するコンテナをまとめて終了
+6. 関係するコンテナをまとめて終了
 ```
 docker-compose stop
 ```
