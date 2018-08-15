@@ -1,0 +1,21 @@
+version: '3' # docker-composeの使用バージョン
+services: # コンテナから作られるサービス達。コンテナの設定を以下に。
+  nginx: # コンテナの名前
+    build: # イメージ(コンテナのテンプレ)を作るためのDockerfileがある場所
+      context: ./ # Dockerfileの場所
+    privileged: true
+    volumes:
+    - "./:/usr/local/nginx/html"
+    ports: # 公開port
+    - 80:80 # 外部公開ポート番号 : コンテナのポート番号
+    - 3000:3000
+    container_name: "nuxt" # コンテナ名
+  # mysql
+  mysql:
+    image: mysql
+    volumes_from:
+    - data-mysql
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
